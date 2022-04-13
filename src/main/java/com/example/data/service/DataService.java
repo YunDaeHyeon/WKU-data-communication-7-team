@@ -16,7 +16,7 @@ public class DataService {
     DataMapper dataMapper;
 
     // 팀 정보 불러오기
-    public List<TeamDTO> roadTeam() throws Exception{
-        return dataMapper.roadTeam();
+    public List<TeamDTO> roadTeam(int teamId) throws Exception{
+        return dataMapper.roadTeam(teamId);
     }
 }

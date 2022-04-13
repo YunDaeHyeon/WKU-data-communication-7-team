@@ -8,5 +8,5 @@ import java.util.List;
 @Mapper
 public interface DataMapper {
     // 팀 불러오기
-    List<TeamDTO> roadTeam() throws Exception;
+    List<TeamDTO> roadTeam(int teamId) throws Exception;
 }

@@ -45,7 +45,7 @@ public class DataController {
         try{
             int teamId = Integer.parseInt(request.getParameter("team_id"));
             System.out.println("성공적으로 값을 받았습니다. teamId : "+teamId);
-            List<TeamDTO> teamDTO = dataService.roadTeam();
+            List<TeamDTO> teamDTO = dataService.roadTeam(teamId);
             for(int i = 0; i < teamDTO.size(); i++){
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("team_name",teamDTO.get(i).getTeamName());

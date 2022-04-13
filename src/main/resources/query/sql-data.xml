@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meonjicompany.planning.jplanningbackend.mapper.UserMapper">
-    <select id="roadTeam" resultType="com.example.data.dto.TeamDTO">
-        select team_name, team_age, team_email from team order by team_id
+    <select id="roadTeam" parameterType="int" resultType="com.example.data.dto.TeamDTO">
+        select team_name, team_age, team_email from team WHERE team_id = {teamId} order by team_id
     </select>
 </mapper>
