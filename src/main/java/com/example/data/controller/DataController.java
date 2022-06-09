@@ -65,7 +65,7 @@ public class DataController {
     }
 
     // 404 코드 호출
-    @RequestMapping(value = "404")
+    @RequestMapping(value = "notfound")
     public ResponseEntity sendHttpCode404(HttpServletRequest request) throws Exception{
         try{
             String temp = request.getParameter("call_code");
@@ -74,11 +74,11 @@ public class DataController {
             System.out.println("통신 실패");
             e.printStackTrace();
         }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     // 403 코드 호출
-    @RequestMapping(value = "403")
+    @RequestMapping(value = "forbidden")
     public ResponseEntity sendHttpCode403(HttpServletRequest request) throws Exception{
         try{
             String temp = request.getParameter("call_code");
@@ -87,11 +87,11 @@ public class DataController {
             System.out.println("통신 실패");
             e.printStackTrace();
         }
-        return new ResponseEntity(HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     // 500 코드 호출
-    @RequestMapping(value = "500")
+    @RequestMapping(value = "servereeror")
     public ResponseEntity sendHttpCode500(HttpServletRequest request) throws Exception{
         try{
             String temp = request.getParameter("call_code");
@@ -100,7 +100,7 @@ public class DataController {
             System.out.println("통신 실패");
             e.printStackTrace();
         }
-        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
 
