@@ -5,6 +5,8 @@ import com.example.data.service.DataService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -62,6 +64,44 @@ public class DataController {
         }
     }
 
+    // 404 코드 호출
+    @RequestMapping(value = "404")
+    public ResponseEntity sendHttpCode404(HttpServletRequest request) throws Exception{
+        try{
+            String temp = request.getParameter("call_code");
+            System.out.println("[Code : 404] 성공적으로 값을 받았습니다. temp : "+temp);
+        }catch (Exception e){
+            System.out.println("통신 실패");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    // 403 코드 호출
+    @RequestMapping(value = "403")
+    public ResponseEntity sendHttpCode403(HttpServletRequest request) throws Exception{
+        try{
+            String temp = request.getParameter("call_code");
+            System.out.println("[Code : 403] 성공적으로 값을 받았습니다. temp : "+temp);
+        }catch (Exception e){
+            System.out.println("통신 실패");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(HttpStatus.FORBIDDEN);
+    }
+
+    // 500 코드 호출
+    @RequestMapping(value = "500")
+    public ResponseEntity sendHttpCode500(HttpServletRequest request) throws Exception{
+        try{
+            String temp = request.getParameter("call_code");
+            System.out.println("[Code : 500] 성공적으로 값을 받았습니다. temp : "+temp);
+        }catch (Exception e){
+            System.out.println("통신 실패");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
 
 class Message{
